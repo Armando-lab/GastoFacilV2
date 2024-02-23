@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <TextView
+        android:id="@+id/textViewFecha"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Fecha:"
+        android:layout_marginTop="16dp"
+        android:layout_marginStart="16dp"/>
+
+    <EditText
+        android:id="@+id/editTextFecha"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="100dp"
+        android:clickable="true"
+        android:focusable="false"
+        android:hint="Seleccione la fecha"
+        android:inputType="none"
+        android:onClick="showDatePickerDialog" />
+
+    <TextView
+        android:id="@+id/textViewCantidad"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Cantidad gastada:"
+        android:layout_below="@id/textViewFecha"
+        android:layout_marginTop="16dp"
+        android:layout_marginStart="16dp"/>
+
+    <EditText
+        android:id="@+id/editTextCantidad"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/editTextFecha"
+        android:layout_marginStart="15dp"
+        android:layout_marginTop="-3dp"
+        android:layout_toEndOf="@id/textViewCantidad"
+        android:hint="Ingrese la cantidad"
+        android:inputType="numberDecimal" />
+
+    <TextView
+        android:id="@+id/textViewTipoGasto"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/textViewCantidad"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="35dp"
+        android:text="Tipo de gasto:" />
+
+    <Spinner
+        android:id="@+id/spinnerTipoGasto"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/editTextCantidad"
+        android:layout_marginStart="61dp"
+        android:layout_marginTop="18dp"
+        android:layout_toEndOf="@id/textViewTipoGasto" />
+
+    <TextView
+        android:id="@+id/textViewLugar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/textViewTipoGasto"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="33dp"
+        android:text="Lugar:" />
+
+    <EditText
+        android:id="@id/editTextLugar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/spinnerTipoGasto"
+        android:layout_marginStart="110dp"
+        android:layout_marginTop="16dp"
+        android:layout_toEndOf="@id/textViewLugar"
+        android:hint="Ingrese el lugar" />
+
+    <Button
+        android:id="@id/btnGuardar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Guardar"
+        android:layout_below="@id/editTextLugar"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="24dp"/>
+
+</RelativeLayout>

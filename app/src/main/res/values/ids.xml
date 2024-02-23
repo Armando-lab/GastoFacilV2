@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <item name="textViewFecha" type="id"/>
+    <item name="editTextFecha" type="id"/>
+    <item name="textViewCantidad" type="id"/>
+    <item name="editTextCantidad" type="id"/>
+    <item name="textViewTipoGasto" type="id"/>
+    <item name="spinnerTipoGasto" type="id"/>
+    <item name="textViewLugar" type="id"/>
+    <item name="editTextLugar" type="id"/>
+    <item name="btnGuardar" type="id"/>
+    <item name="btnResumen" type="id"/>
+    <item name="btnRegistro" type="id"/>
+</resources>
