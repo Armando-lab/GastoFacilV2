@@ -21,6 +21,8 @@ class MainActivity : AppCompatActivity() {
         val btnRegistro = findViewById<Button>(R.id.btnRegistro)
         val btnResumen = findViewById<Button>(R.id.btnResumen)
 
+
+
         btnRegistro.setOnClickListener {
             val intent = Intent(this, RegistroActivity::class.java)
             startActivity(intent)
@@ -41,16 +43,27 @@ class MainActivity : AppCompatActivity() {
     }
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        // Manejar clics en los elementos del menú del cajón (NavigationView)
+        if (item.itemId == R.id.menu_export) {
+            // Manejar clic en el elemento "Exportar"
+            val intent = Intent(this, ExportActivity::class.java)
+            startActivity(intent)
+            return true // Indica que el evento ha sido consumido
+        } else if (item.itemId == R.id.menu_history) {
+            // Manejar clic en el elemento "Historial"
+            val intent = Intent(this, HistoryActivity::class.java)
+            startActivity(intent)
+            return true // Indica que el evento ha sido consumido
+        }
+
         // Manejar clics en el icono de hamburguesa para abrir y cerrar el drawer
         return if (drawerToggle.onOptionsItemSelected(item)) {
             true
         } else super.onOptionsItemSelected(item)
     }
 
-    override fun onCreateOptionsMenu(menu: Menu?): Boolean {
-        menuInflater.inflate(R.menu.menu_main, menu)
-        return super.onCreateOptionsMenu(menu)
-    }
+
+
 
     override fun onPostCreate(savedInstanceState: Bundle?) {
         super.onPostCreate(savedInstanceState)
