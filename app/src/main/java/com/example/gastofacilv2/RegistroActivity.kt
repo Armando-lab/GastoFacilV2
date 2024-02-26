@@ -1,8 +1,11 @@
 package com.example.gastofacilv2
+
 import android.app.DatePickerDialog
 import android.content.ContentValues
 import android.content.Intent
 import android.os.Bundle
+import android.text.Editable
+import android.text.TextWatcher
 import android.widget.ArrayAdapter
 import android.widget.Button
 import android.widget.EditText
@@ -15,6 +18,7 @@ import java.util.*
 class RegistroActivity : AppCompatActivity() {
 
     private lateinit var dbHelper: GastoDBHelper
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_registro)
@@ -24,6 +28,7 @@ class RegistroActivity : AppCompatActivity() {
         val editTextFecha = findViewById<EditText>(R.id.editTextFecha)
         val spinnerTipoGasto = findViewById<Spinner>(R.id.spinnerTipoGasto)
         val btnGuardar = findViewById<Button>(R.id.btnGuardar)
+        val editTextLugar = findViewById<EditText>(R.id.editTextLugar)
 
         // Configuración del Spinner con opciones de tipo de gasto
         val opcionesTipoGasto = arrayOf("Comida", "Transporte", "Entretenimiento", "Compras", "Otros")
@@ -47,6 +52,26 @@ class RegistroActivity : AppCompatActivity() {
             }, año, mes, dia)
             dpd.show()
         }
+
+        // Agregar un listener al EditText de lugar
+        editTextLugar.addTextChangedListener(object : TextWatcher {
+            override fun beforeTextChanged(s: CharSequence?, start: Int, count: Int, after: Int) {}
+
+            override fun onTextChanged(s: CharSequence?, start: Int, before: Int, count: Int) {
+                // Verificar si se ha alcanzado el límite de caracteres
+                if (s != null && s.length >= 100) {
+                    // Si se alcanza el límite, restringir la entrada de texto adicional
+                    val newText = s.subSequence(0, 100) // Obtener los primeros 100 caracteres
+                    editTextLugar.removeTextChangedListener(this) // Remover el TextWatcher temporalmente
+                    editTextLugar.setText(newText) // Establecer el texto limitado a 100 caracteres
+                    editTextLugar.setSelection(newText.length) // Mover el cursor al final del texto
+                    editTextLugar.addTextChangedListener(this) // Agregar el TextWatcher nuevamente
+                }
+            }
+
+            override fun afterTextChanged(s: Editable?) {}
+        })
+
         // Manejar clic en el botón de guardar
         btnGuardar.setOnClickListener {
 
@@ -109,5 +134,4 @@ class RegistroActivity : AppCompatActivity() {
         // Devolver true si el guardado fue exitoso
         return newRowId != -1L
     }
-
 }
