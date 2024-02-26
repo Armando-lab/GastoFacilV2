@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="filter_options">
+        <item>Todas</item>
+        <item>Semana</item>
+        <item>Mes</item>
+        <item>Año</item>
+    </string-array>
+
+    <string-array name="month_options">
+        <item>Enero</item>
+        <item>Febrero</item>
+        <item>Marzo</item>
+        <item>Abril</item>
+        <item>Mayo</item>
+        <item>Junio</item>
+        <item>Julio</item>
+        <item>Agosto</item>
+        <item>Septiembre</item>
+        <item>Octubre</item>
+        <item>Noviembre</item>
+        <item>Diciembre</item>
+    </string-array>
+
+    <string-array name="year_options">
+        <item>2020</item>
+        <item>2021</item>
+        <item>2022</item>
+        <item>2023</item>
+        <item>2024</item>
+        <!-- Agrega los años que necesites -->
+    </string-array>
+
+    <array name="chart_colors">
+        <item>@color/colorComida</item>
+        <item>@color/colorTransporte</item>
+        <item>@color/colorEntretenimiento</item>
+        <item>@color/colorCompras</item>
+        <item>@color/colorOtros</item>
+        <!-- Agrega más colores si es necesario -->
+    </array>
+
+</resources>

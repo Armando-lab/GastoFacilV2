@@ -16,4 +16,8 @@ object PreferenceManager {
         editor.putString("$gastoId:lugar", lugar)
         editor.apply()
     }
+
+    fun getSharedPreferences(context: Context): SharedPreferences {
+        return context.getSharedPreferences(PREFS_NAME, Context.MODE_PRIVATE)
+    }
 }

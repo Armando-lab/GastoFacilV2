@@ -11,4 +11,6 @@
     <item name="btnGuardar" type="id"/>
     <item name="btnResumen" type="id"/>
     <item name="btnRegistro" type="id"/>
+    <item name="bar_chart" type="id"/>
+
 </resources>

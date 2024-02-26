@@ -7,9 +7,7 @@
         android:title="Notificaciones"
         app:actionLayout="@layout/menu_item_with_switch" />
 
-    <item
-        android:id="@+id/menu_export"
-        android:title="Exportar" />
+
 
     <item
         android:id="@+id/menu_history"

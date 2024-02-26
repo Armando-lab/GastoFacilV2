@@ -7,4 +7,10 @@
     <color name="teal_700">#FF018786</color>
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
+
+    <color name="colorComida">#DDCA1C</color>
+    <color name="colorTransporte">#95FF00</color>
+    <color name="colorEntretenimiento">#0060C7</color>
+    <color name="colorCompras">#E43679</color>
+    <color name="colorOtros">#7200F4</color>
 </resources>
