@@ -1,6 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
+    <style name="Theme.GastoFacilV2" parent="Theme.AppCompat.Light.DarkActionBar" >
+        <item name="colorPrimary">#8b8df9</item>
 
-    <style name="Theme.GastoFacilV2" parent="Theme.AppCompat.Light.DarkActionBar" />
+    </style>
+
+    <style name="CustomButton" parent="Widget.MaterialComponents.Button">
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_width">120dp</item>
+        <item name="strokeColor">@color/teal_200</item>
+        <item name="strokeWidth">3dp</item>
+        <item name="android:textColor">@color/purple_700</item>
+    </style>
+
 </resources>

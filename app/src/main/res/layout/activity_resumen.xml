@@ -4,31 +4,31 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:padding="16dp"
-    tools:context=".ResumenActivity">
+    tools:context=".ResumenActivity"
+    android:background="#D021B5A9"
+    >
 
-  <!-- Spinner del mes -->
-
-  <!-- Spinner del año -->
 
   <Spinner
       android:id="@+id/spinner_month"
-      android:layout_width="wrap_content"
+      android:layout_width="89dp"
       android:layout_height="wrap_content"
       android:layout_alignParentTop="true"
       android:layout_centerHorizontal="true"
       android:layout_marginTop="6dp"
-      android:entries="@array/month_options" />
+      android:background="@drawable/rounded_corner"
+      android:entries="@array/month_options"
+
+      />
 
   <Spinner
       android:id="@+id/spinner_year"
-      android:layout_width="wrap_content"
+      android:layout_width="88dp"
       android:layout_height="wrap_content"
-      android:layout_below="@id/spinner_month"
       android:layout_marginTop="8dp"
-      android:layout_centerHorizontal="true"
+      android:background="@drawable/rounded_corner"
       android:entries="@array/year_options" />
 
-  <!-- Gráfica de barras -->
   <com.github.mikephil.charting.charts.BarChart
       android:id="@+id/bar_chart"
       android:layout_width="match_parent"
@@ -37,14 +37,6 @@
       android:layout_marginTop="3dp"
       android:layout_marginBottom="35dp"/>
 
-  <!-- Spinner de filtro -->
-  <Spinner
-      android:id="@+id/spinner_filter"
-      android:layout_width="match_parent"
-      android:layout_height="wrap_content"
-      android:layout_alignParentBottom="true"
-      android:background="@android:color/white"
-      android:padding="8dp"
-      android:spinnerMode="dropdown" />
+
 
 </RelativeLayout>

@@ -1,6 +1,7 @@
 package com.example.gastofacilv2
 import android.app.DatePickerDialog
 import android.content.ContentValues
+import android.content.Intent
 import android.os.Bundle
 import android.widget.ArrayAdapter
 import android.widget.Button
@@ -48,21 +49,43 @@ class RegistroActivity : AppCompatActivity() {
         }
         // Manejar clic en el botón de guardar
         btnGuardar.setOnClickListener {
-            guardarGasto()
+
+            val guardadoExitoso = guardarGasto()
+
+            if (guardadoExitoso) {
+                // Si se guarda correctamente, crear un Intent para iniciar la MainActivity
+                val intent = Intent(this, MainActivity::class.java)
+                startActivity(intent)
+            }
+
         }
     }
 
-    private fun guardarGasto() {
-
+    private fun guardarGasto(): Boolean {
         val editTextFecha = findViewById<EditText>(R.id.editTextFecha)
         val editTextCantidad = findViewById<EditText>(R.id.editTextCantidad)
         val spinnerTipoGasto = findViewById<Spinner>(R.id.spinnerTipoGasto)
         val editTextLugar = findViewById<EditText>(R.id.editTextLugar)
 
-        val fecha = editTextFecha.text.toString()
-        val cantidad = editTextCantidad.text.toString().toDoubleOrNull() ?: 0.0
+        val fecha = editTextFecha.text.toString().trim()
+        val cantidadText = editTextCantidad.text.toString().trim()
         val tipoGasto = spinnerTipoGasto.selectedItem.toString()
-        val lugar = editTextLugar.text.toString()
+        val lugar = editTextLugar.text.toString().trim()
+
+        // Verificar si algún campo está vacío
+        if (fecha.isEmpty() || cantidadText.isEmpty() || lugar.isEmpty()) {
+            Toast.makeText(this, "Por favor, complete todos los campos.", Toast.LENGTH_SHORT).show()
+            return false
+        }
+
+        // Convertir la cantidad a un valor numérico
+        val cantidad = cantidadText.toDoubleOrNull() ?: 0.0
+
+        // Verificar si la cantidad es mayor que cero
+        if (cantidad <= 0) {
+            Toast.makeText(this, "Por favor, introduzca una cantidad válida.", Toast.LENGTH_SHORT).show()
+            return false
+        }
 
         val db = dbHelper.writableDatabase
 
@@ -82,5 +105,9 @@ class RegistroActivity : AppCompatActivity() {
         editTextFecha.text.clear()
         editTextCantidad.text.clear()
         editTextLugar.text.clear()
+
+        // Devolver true si el guardado fue exitoso
+        return newRowId != -1L
     }
+
 }

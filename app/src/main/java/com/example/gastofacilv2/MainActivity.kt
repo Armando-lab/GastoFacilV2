@@ -1,23 +1,19 @@
 package com.example.gastofacilv2
 
-import android.Manifest
-import android.app.AlertDialog
+
+import android.app.AlarmManager
+import android.app.NotificationManager
+import android.app.PendingIntent
 import android.content.Context
 import android.content.Intent
-import android.content.pm.PackageManager
 import android.os.Bundle
-import android.os.Environment
 import android.view.MenuItem
 import android.widget.Button
-import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
-import androidx.core.app.ActivityCompat
-import androidx.core.content.ContextCompat
 import androidx.drawerlayout.widget.DrawerLayout
 import androidx.appcompat.app.ActionBarDrawerToggle
+import androidx.core.app.NotificationCompat
 import com.google.android.material.navigation.NavigationView
-import java.io.File
-import java.io.FileOutputStream
 
 class MainActivity : AppCompatActivity() {
 
@@ -65,6 +61,8 @@ class MainActivity : AppCompatActivity() {
         drawerLayout.addDrawerListener(drawerToggle)
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
         supportActionBar?.setHomeButtonEnabled(true)
+
+
     }
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
@@ -91,3 +89,6 @@ class MainActivity : AppCompatActivity() {
 
 
 }
+
+
+

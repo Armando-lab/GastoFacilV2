@@ -4,7 +4,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/drawer_layout"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:background="@drawable/fondo">
 
     <!-- Contenido principal de tu actividad -->
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -12,42 +13,77 @@
         android:layout_height="match_parent">
 
         <TextView
-            android:id="@+id/textViewWelcome"
+            android:textColor="#000000"
+            android:id="@+id/textView1"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="¡Bienvenido!"
-            android:textSize="24sp"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            android:layout_marginTop="64dp"
-            android:layout_marginBottom="32dp"/>
+            android:text="Registra Nuevos Gastos"
+            tools:layout_editor_absoluteX="156dp"
+            tools:layout_editor_absoluteY="297dp"
+            tools:ignore="MissingConstraints"
+            app:layout_constraintBottom_toTopOf="@id/btnRegistro"
+            app:layout_constraintStart_toStartOf="@id/btnRegistro"
+            app:layout_constraintEnd_toEndOf="@id/btnRegistro"
+            android:layout_marginTop="-48dp"/>
+
+        <TextView
+            android:textColor="#000000"
+            android:id="@+id/textView2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Consulta tus Gastos"
+            tools:layout_editor_absoluteX="161dp"
+            tools:layout_editor_absoluteY="421dp"
+            tools:ignore="MissingConstraints"
+            app:layout_constraintBottom_toTopOf="@id/btnResumen"
+            app:layout_constraintStart_toStartOf="@id/btnResumen"
+            app:layout_constraintEnd_toEndOf="@id/btnResumen"
+            />
 
         <Button
             android:id="@+id/btnRegistro"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="149dp"
+            android:layout_height="48dp"
             android:layout_marginStart="64dp"
-            android:layout_marginTop="260dp"
+            android:layout_marginTop="168dp"
             android:layout_marginEnd="64dp"
+            android:theme="@style/CustomButton"
+            android:textSize="17dp"
+            android:textColor="@color/black"
             android:text="Registro"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.051"
+            app:layout_constraintHorizontal_bias="0.497"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/textViewWelcome" />
 
         <Button
             android:id="@+id/btnResumen"
+            android:layout_width="128dp"
+            android:layout_height="46dp"
+            android:layout_marginStart="64dp"
+            android:layout_marginTop="72dp"
+            android:layout_marginEnd="64dp"
+            android:theme="@style/CustomButton"
+            android:textSize="17dp"
+            android:textColor="@color/black"            android:text="Resumen"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.497"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/btnRegistro" />
+
+        <TextView
+            android:id="@+id/textViewWelcome"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="64dp"
-            android:layout_marginTop="260dp"
-            android:layout_marginEnd="64dp"
-            android:text="Resumen"
+            android:layout_marginTop="120dp"
+            android:text="¡Bienvenido!"
+            android:textColor="@color/black"
+            android:textSize="24sp"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="1.0"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/textViewWelcome" />
+            app:layout_constraintTop_toTopOf="parent" />
+
+
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 
@@ -57,6 +93,7 @@
         android:layout_width="wrap_content"
         android:layout_height="match_parent"
         android:layout_gravity="start"
-        app:menu="@menu/menu_drawer"/>
+        app:menu="@menu/menu_drawer"
+        android:background="@drawable/fondo"/>
 
 </androidx.drawerlayout.widget.DrawerLayout>
