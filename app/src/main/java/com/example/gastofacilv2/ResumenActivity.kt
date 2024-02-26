@@ -46,17 +46,17 @@ class ResumenActivity : AppCompatActivity() {
         val monthAdapter = ArrayAdapter.createFromResource(
             this,
             R.array.month_options,
-            android.R.layout.simple_spinner_item
+            R.layout.spinner_item
         )
-        monthAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
+        monthAdapter.setDropDownViewResource(R.layout.spinner_dropdown_item)
         spinnerMonth.adapter = monthAdapter
 
         val yearAdapter = ArrayAdapter.createFromResource(
             this,
             R.array.year_options,
-            android.R.layout.simple_spinner_item
+            R.layout.spinner_item
         )
-        yearAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
+        yearAdapter.setDropDownViewResource(R.layout.spinner_dropdown_item)
         spinnerYear.adapter = yearAdapter
 
         // Obtener el mes y el año actual
