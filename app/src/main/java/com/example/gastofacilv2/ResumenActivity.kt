@@ -1,6 +1,5 @@
 package com.example.gastofacilv2
 
-
 import android.os.Bundle
 import android.view.View
 import android.widget.AdapterView
@@ -15,6 +14,7 @@ import com.github.mikephil.charting.data.BarData
 import com.github.mikephil.charting.data.BarDataSet
 import com.github.mikephil.charting.data.BarEntry
 import kotlinx.coroutines.*
+import java.util.Calendar
 
 class ResumenActivity : AppCompatActivity() {
 
@@ -59,13 +59,22 @@ class ResumenActivity : AppCompatActivity() {
         yearAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
         spinnerYear.adapter = yearAdapter
 
+        // Obtener el mes y el año actual
+        val calendar = Calendar.getInstance()
+        val currentMonth = calendar.get(Calendar.MONTH)
+        val currentYear = calendar.get(Calendar.YEAR)
+
+        // Establecer el mes y el año actual seleccionados en los Spinners
+        spinnerMonth.setSelection(currentMonth)
+        val yearPosition = yearAdapter.getPosition(currentYear.toString())
+        spinnerYear.setSelection(yearPosition)
+
+        // Cargar los datos al iniciar la actividad con el mes y año actual
+        loadChartData(currentMonth + 1, currentYear) // Sumamos 1 al mes porque los meses se indexan desde 0
+
+        // Configurar listener para los Spinners
         spinnerMonth.onItemSelectedListener = object : AdapterView.OnItemSelectedListener {
-            override fun onItemSelected(
-                parent: AdapterView<*>?,
-                view: View?,
-                position: Int,
-                id: Long
-            ) {
+            override fun onItemSelected(parent: AdapterView<*>?, view: View?, position: Int, id: Long) {
                 loadChartData(getSelectedMonth(), getSelectedYear())
             }
 
@@ -73,12 +82,7 @@ class ResumenActivity : AppCompatActivity() {
         }
 
         spinnerYear.onItemSelectedListener = object : AdapterView.OnItemSelectedListener {
-            override fun onItemSelected(
-                parent: AdapterView<*>?,
-                view: View?,
-                position: Int,
-                id: Long
-            ) {
+            override fun onItemSelected(parent: AdapterView<*>?, view: View?, position: Int, id: Long) {
                 loadChartData(getSelectedMonth(), getSelectedYear())
             }
 
@@ -164,5 +168,4 @@ class ResumenActivity : AppCompatActivity() {
             }
         }
     }
-
 }

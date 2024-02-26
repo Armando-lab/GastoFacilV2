@@ -54,23 +54,27 @@ class RegistroActivity : AppCompatActivity() {
         }
 
         // Agregar un listener al EditText de lugar
+        // Agregar un listener al EditText de lugar
         editTextLugar.addTextChangedListener(object : TextWatcher {
             override fun beforeTextChanged(s: CharSequence?, start: Int, count: Int, after: Int) {}
 
             override fun onTextChanged(s: CharSequence?, start: Int, before: Int, count: Int) {
                 // Verificar si se ha alcanzado el límite de caracteres
                 if (s != null && s.length >= 100) {
-                    // Si se alcanza el límite, restringir la entrada de texto adicional
-                    val newText = s.subSequence(0, 100) // Obtener los primeros 100 caracteres
-                    editTextLugar.removeTextChangedListener(this) // Remover el TextWatcher temporalmente
-                    editTextLugar.setText(newText) // Establecer el texto limitado a 100 caracteres
-                    editTextLugar.setSelection(newText.length) // Mover el cursor al final del texto
-                    editTextLugar.addTextChangedListener(this) // Agregar el TextWatcher nuevamente
+                    // Mostrar un mensaje informando al usuario
+                    Toast.makeText(this@RegistroActivity, "Ha alcanzado el límite de caracteres", Toast.LENGTH_SHORT).show()
+                }
+                // Limitar la entrada de texto a 100 caracteres
+                if (s != null && s.length > 100) {
+                    val newText = s.subSequence(0, 100)
+                    editTextLugar.setText(newText)
+                    editTextLugar.setSelection(newText.length)
                 }
             }
 
             override fun afterTextChanged(s: Editable?) {}
         })
+
 
         // Manejar clic en el botón de guardar
         btnGuardar.setOnClickListener {
